@@ -50,6 +50,10 @@
     *ngIf="novoUsuarioForm.get('userName')?.errors?.['minusculo'] && novoUsuarioForm.get('userName')?.touched"
     mensagem="Usuário deve ser minusculo"
   ></app-mensagem>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('userName')?.errors?.['usuarioExistente']"
+    mensagem="Usuário já existe, digite outro"
+  ></app-mensagem>
   <div class="mb-3">
     <input
       type="password"
