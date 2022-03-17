@@ -11,16 +11,28 @@
       formControlName="email"
     />
   </div>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] && novoUsuarioForm.get('email')?.touched"
+    mensagem="E-mail obrigatório"
+  ></app-mensagem>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] && novoUsuarioForm.get('email')?.touched"
+    mensagem="E-mail inválido"
+  ></app-mensagem>
   <div class="mb-3">
     <input
-      type="text"
-      name="fullName"
-      id="fullName"
-      placeholder="Nome Completo"
-      class="form-control"
-      formControlName="fullName"
+    type="text"
+    name="fullName"
+    id="fullName"
+    placeholder="Nome Completo"
+    class="form-control"
+    formControlName="fullName"
     />
   </div>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('fullName')?.errors && novoUsuarioForm.get('fullName')?.touched"
+    mensagem="Nome inválido"
+  ></app-mensagem>
   <div class="mb-3">
     <input
       type="text"
