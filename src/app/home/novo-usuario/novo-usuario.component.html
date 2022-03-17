@@ -21,16 +21,19 @@
   ></app-mensagem>
   <div class="mb-3">
     <input
-    type="text"
-    name="fullName"
-    id="fullName"
-    placeholder="Nome Completo"
-    class="form-control"
-    formControlName="fullName"
+      type="text"
+      name="fullName"
+      id="fullName"
+      placeholder="Nome Completo"
+      class="form-control"
+      formControlName="fullName"
     />
   </div>
   <app-mensagem
-    *ngIf="novoUsuarioForm.get('fullName')?.errors && novoUsuarioForm.get('fullName')?.touched"
+    *ngIf="
+      novoUsuarioForm.get('fullName')?.errors &&
+      novoUsuarioForm.get('fullName')?.touched
+    "
     mensagem="Nome inválido"
   ></app-mensagem>
   <div class="mb-3">
@@ -43,6 +46,10 @@
       formControlName="userName"
     />
   </div>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('userName')?.errors?.['minusculo'] && novoUsuarioForm.get('userName')?.touched"
+    mensagem="Usuário deve ser minusculo"
+  ></app-mensagem>
   <div class="mb-3">
     <input
       type="password"
