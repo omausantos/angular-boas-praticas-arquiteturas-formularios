@@ -64,6 +64,7 @@
       formControlName="password"
     />
   </div>
+  <app-mensagem *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']" mensagem="Senha deve ser diferente do usuário"></app-mensagem>
   <button type="submit" class="btn btn-primary btn-lg btn-block">
     Cadastro
   </button>
