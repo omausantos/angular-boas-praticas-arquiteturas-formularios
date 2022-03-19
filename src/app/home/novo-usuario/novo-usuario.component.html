@@ -11,6 +11,14 @@
       formControlName="email"
     />
   </div>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] && novoUsuarioForm.get('email')?.touched"
+    mensagem="E-mail obrigatório"
+  ></app-mensagem>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] && novoUsuarioForm.get('email')?.touched"
+    mensagem="E-mail inválido"
+  ></app-mensagem>
   <div class="mb-3">
     <input
       type="text"
@@ -21,6 +29,13 @@
       formControlName="fullName"
     />
   </div>
+  <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('fullName')?.errors &&
+      novoUsuarioForm.get('fullName')?.touched
+    "
+    mensagem="Nome inválido"
+  ></app-mensagem>
   <div class="mb-3">
     <input
       type="text"
@@ -31,6 +46,14 @@
       formControlName="userName"
     />
   </div>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('userName')?.errors?.['minusculo'] && novoUsuarioForm.get('userName')?.touched"
+    mensagem="Usuário deve ser minusculo"
+  ></app-mensagem>
+  <app-mensagem
+    *ngIf="novoUsuarioForm.get('userName')?.errors?.['usuarioExistente']"
+    mensagem="Usuário já existe, digite outro"
+  ></app-mensagem>
   <div class="mb-3">
     <input
       type="password"
@@ -41,6 +64,7 @@
       formControlName="password"
     />
   </div>
+  <app-mensagem *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']" mensagem="Senha deve ser diferente do usuário"></app-mensagem>
   <button type="submit" class="btn btn-primary btn-lg btn-block">
     Cadastro
   </button>
