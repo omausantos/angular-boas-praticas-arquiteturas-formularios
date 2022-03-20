@@ -18,8 +18,10 @@ export class UsuarioService {
 
   private decodificaJWT(): void {
     const token = this.tokenService.retornaToken();
-    const usuario = jwt_decode(token) as Usuario;
-    this.usuarioSubject.next(usuario);
+    if (token) {
+      const usuario = jwt_decode(token) as Usuario;
+      this.usuarioSubject.next(usuario);
+    }
   }
 
   retornaUsuario(): Observable<Usuario> {
