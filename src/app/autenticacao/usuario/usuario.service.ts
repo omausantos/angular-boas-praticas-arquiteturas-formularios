@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Usuario } from './usuario';
 import jwt_decode from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { runInThisContext } from 'vm';
 
 @Injectable({
   providedIn: 'root',
